@@ -1,4 +1,4 @@
-import { ApolloServer } from 'apollo-server-micro';
+import { ApolloServer, gql } from 'apollo-server-micro';
 import Cors from 'micro-cors';
 import mongoose from 'mongoose';
 import 'dotenv/config';
@@ -8,7 +8,7 @@ import resolvers from './resolvers';
 
 const cors = Cors();
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs: typeDefs as any, resolvers });
 const startServer = server.start();
 
 const DB_CONNECTION_STRING = process.env.MONGODB || '';
