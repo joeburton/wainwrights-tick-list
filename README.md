@@ -1,5 +1,13 @@
 # Wainwrights Tick List
 
+```
+curl --request POST \
+  --header 'content-type: application/json' \
+  --url 'https://wainwrights-tick-list.vercel.app/api/graphql' \
+  --data '{"query":"{\n   query GetFells { getFells {
+    id, name, region, metres, feet, latitude, longitude, climbed, notes, date, } }\n}","variables":{}}'
+```
+
 Delete Fell
 
 ```
