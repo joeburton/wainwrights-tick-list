@@ -1,6 +1,7 @@
 import { Schema, Model, model, models } from 'mongoose';
 
 export interface FellInterface {
+  id?: string;
   name: string;
   region: string;
   metres: string;
