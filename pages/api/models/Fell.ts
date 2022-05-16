@@ -5,7 +5,7 @@ export interface FellInterface {
   name: string;
   region: string;
   metres: string;
-  feet: boolean;
+  feet: string;
   latitude: string;
   longitude: string;
   climbed: boolean;

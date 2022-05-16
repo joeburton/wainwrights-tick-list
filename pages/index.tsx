@@ -1,11 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { FellList } from '../components/';
-
 import { gql } from '@apollo/client';
 import client from '../apollo/apollo-client';
 
+import { FellList } from '@/components/index';
 import { FellInterface } from './api/models/Fell';
 
 import styles from '../styles/Home.module.css';
