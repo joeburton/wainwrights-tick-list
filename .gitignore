@@ -6,4 +6,6 @@ notes.txt
 cypress/screenshots
 cypress/videos
 .vercel
+
 .env
+.env.local

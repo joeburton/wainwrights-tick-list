@@ -11,9 +11,11 @@ import { FellInterface } from './api/models/Fell';
 import { FellListPaginated } from '@/components/index';
 import { Header } from '@/components/index';
 
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+
 import styles from '../styles/Home.module.css';
 
-const Home: NextPage<{ fells: FellInterface[] }> = ({ fells }) => {
+const Ticklist: NextPage<{ fells: FellInterface[] }> = ({ fells }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -34,31 +36,33 @@ const Home: NextPage<{ fells: FellInterface[] }> = ({ fells }) => {
   );
 };
 
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query GetFells {
-        getFells {
-          id
-          name
-          region
-          metres
-          feet
-          latitude
-          longitude
-          climbed
-          notes
-          date
+export default Ticklist;
+
+export const getServerSideProps = withPageAuthRequired({
+  async getServerSideProps(context) {
+    const { data } = await client.query({
+      query: gql`
+        query GetFells {
+          getFells {
+            id
+            name
+            region
+            metres
+            feet
+            latitude
+            longitude
+            climbed
+            notes
+            date
+          }
         }
-      }
-    `,
-  });
+      `,
+    });
 
-  return {
-    props: {
-      fells: data.getFells,
-    },
-  };
-}
-
-export default Home;
+    return {
+      props: {
+        fells: data.getFells,
+      },
+    };
+  },
+});

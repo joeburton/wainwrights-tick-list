@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from '@testing-library/react';
 
-import { FellList } from '@/components/FellList';
+import { FellList } from '@/components/index';
 
 describe('FellList', () => {
   it('should render the FellList Component', () => {

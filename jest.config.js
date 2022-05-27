@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
-    '^@/components(.*)$': '<rootDir>/components/$1',
+    '^@/components(.*)$': '<rootDir>/components/',
     '^@/pages(.*)$': '<rootDir>/pages/$1',
     '^.+\\.module\\.(css)$': 'identity-obj-proxy',
   },

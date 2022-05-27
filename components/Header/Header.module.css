@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+}
+
+.login {
+  font-size: 1.2rem;
+  text-align: right;
+  list-style: none;
+  margin: 4px;
+  padding: 0;
+}
+
+.login a {
+  text-decoration: underline;
+}
+
+.siteTitle {
+  display: flex;
+  align-items: center;
+}
