@@ -21,9 +21,10 @@ export default cors(async function handler(req, res) {
   await startServer;
 
   try {
+    console.log(`Mongoose Connected`);
     await mongoose.connect(DB_CONNECTION_STRING);
   } catch (error) {
-    console.log(`Error: `, error);
+    console.log(`Mongoose Error: `, error);
   }
 
   await server.createHandler({

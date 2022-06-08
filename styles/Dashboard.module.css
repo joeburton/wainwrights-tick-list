@@ -1,0 +1,46 @@
+.container {
+  padding: 0 2rem;
+}
+
+.dashboardNavigation {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboardNavigation li {
+  display: flex;
+}
+
+.dashboardNavigation li a {
+  border-radius: 4px;
+  color: #fff;
+  padding: 8px;
+  background-color: #04aa6d;
+  margin-right: 4px;
+}
+
+.dashboardNavigation li a.link,
+.dashboardNavigation li a.danger {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.dashboardNavigation li a:hover,
+.dashboardNavigation li a:active {
+  background-color: #059862;
+}
+
+.dashboardNavigation li a.danger {
+  border-radius: 4px;
+  color: #fff;
+  padding: 8px;
+  background-color: #aa0404;
+  margin-right: 4px;
+}
+
+.dashboardNavigation li a.danger:hover,
+.dashboardNavigation li a.danger:active {
+  background-color: #c73d3d;
+}

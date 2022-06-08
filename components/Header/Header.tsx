@@ -9,8 +9,6 @@ const Header = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
 
-  console.log(user);
-
   return (
     <div className={styles.header}>
       <section className={styles.siteTitle}>

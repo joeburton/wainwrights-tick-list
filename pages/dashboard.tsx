@@ -1,21 +1,20 @@
 import React from 'react';
 
 import type { NextPage } from 'next';
+import Link from 'next/link';
+
 import Head from 'next/head';
 
 import { gql } from '@apollo/client';
 import client from '../apollo/apollo-client';
 
-import { FellInterface } from './api/models/Fell';
-
-import { FellListPaginated } from '@/components/index';
 import { Header } from '@/components/index';
 
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Dashboard.module.css';
 
-const Ticklist: NextPage<{ fells: FellInterface[] }> = ({ fells }) => {
+const Ticklist: NextPage = () => {
   const { user, error, isLoading } = useUser();
 
   console.log(user);
@@ -38,7 +37,27 @@ const Ticklist: NextPage<{ fells: FellInterface[] }> = ({ fells }) => {
         />
       </Head>
       <Header />
-      <FellListPaginated fells={fells} itemsPerPage={20} />
+      <section className={styles.dashboard}>
+        <h2>Dashboard</h2>
+        <ul className={styles.dashboardNavigation}>
+          <li>
+            <Link href="/ticklist">
+              <a className={styles.link}>Tick List</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/profile">
+              <a className={styles.link}>Profile</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/close-account">
+              <a className={styles.danger}>Close Account</a>
+            </Link>
+          </li>
+        </ul>
+        <pre>{JSON.stringify(user, null, 3)}</pre>
+      </section>
     </div>
   );
 };
