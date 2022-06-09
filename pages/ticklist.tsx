@@ -11,18 +11,11 @@ import { FellInterface } from './api/models/Fell';
 import { FellListPaginated } from '@/components/index';
 import { Header } from '@/components/index';
 
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 import styles from '../styles/Home.module.css';
 
 const Ticklist: NextPage<{ fells: FellInterface[] }> = ({ fells }) => {
-  const { user, error, isLoading } = useUser();
-
-  console.log(user);
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
-
   return (
     <div className={styles.container}>
       <Head>

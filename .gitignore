@@ -3,6 +3,7 @@ node_modules
 .next
 coverage
 notes.txt
+accounts.txt
 cypress/screenshots
 cypress/videos
 .vercel

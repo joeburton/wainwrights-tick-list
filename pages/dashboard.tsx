@@ -2,16 +2,11 @@ import React from 'react';
 
 import type { NextPage } from 'next';
 import Link from 'next/link';
-
 import Head from 'next/head';
-
-import { gql } from '@apollo/client';
-import client from '../apollo/apollo-client';
-
-import { Header } from '@/components/index';
 
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
 
+import { Header } from '@/components/index';
 import styles from '../styles/Dashboard.module.css';
 
 const Ticklist: NextPage = () => {
@@ -64,31 +59,4 @@ const Ticklist: NextPage = () => {
 
 export default Ticklist;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(context) {
-    const { data } = await client.query({
-      query: gql`
-        query GetFells {
-          getFells {
-            id
-            name
-            region
-            metres
-            feet
-            latitude
-            longitude
-            climbed
-            notes
-            date
-          }
-        }
-      `,
-    });
-
-    return {
-      props: {
-        fells: data.getFells,
-      },
-    };
-  },
-});
+export const getServerSideProps = withPageAuthRequired({});
